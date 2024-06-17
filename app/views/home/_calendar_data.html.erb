@@ -1,0 +1,21 @@
+<% dates = []%>
+<% month_calendar do |date| %>
+  <%= date.day %>
+  <% dates.append(date)%>
+<% end %>
+<%= puts dates[0]%>
+
+<div class="grid grid-cols-7 gap-4">
+  <div>Mon</div>
+  <div>Tue</div>
+  <div>Wed</div>
+  <div>Thu</div>
+  <div>Fri</div>
+  <div>Sat</div>
+  <div>Sun</div>
+
+  <% dates.each do |date|%>
+    <% day = date.day %>
+    <div><%= day%></div>
+  <%end%>
+</div>
