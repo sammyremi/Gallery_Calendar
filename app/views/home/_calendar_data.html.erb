@@ -3,10 +3,48 @@
   <%= date.day %>
   <% dates.append(date)%>
 <% end %>
-<%= puts dates[0]%>
+
+<% year = dates[10].to_s%>
+<% split_date = year.split("-") %>
+<% year = split_date[0]%>
+<% month = split_date[1]%>
+
+<% case month %>
+<% when "01"%>
+    <% month = "January"%>
+<% when "02"%>
+    <% month = "Febuary"%>
+<% when "03"%>
+    <% month = "March"%>
+<% when "04"%>
+    <% month = "April"%>
+<% when "05"%>
+    <% month = "May"%>
+<% when "06"%>
+    <% month = "June"%>
+<% when "07"%>
+    <% month = "July"%>
+<% when "08"%>
+    <% month = "August"%>
+<% when "09"%>
+    <% month = "September"%>
+<% when "10"%>
+    <% month = "October"%>
+<% when "11"%>
+    <% month = "November"%>
+<% when "12"%>
+    <% month = "December"%>
+<% else %>
+<% end %>
+
+
 
 
 <div>
+      <div class="text-center">
+        <%= month %>
+      </div>
+    
     <div class="grid grid-cols-7 w-2/3 font-bold">
       </*monday */>
       <div>
