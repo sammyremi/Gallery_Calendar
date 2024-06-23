@@ -1,17 +1,6 @@
-<% dates = []%>
-<% month_calendar do |date| %>
-  <%= date.day %>
-  <% dates.append(date)%>
+
+<%= month_calendar do |date| %>
+  <%puts params, date.inspect %>
+  <%= date %>
 <% end %>
 
-<% year = dates[10].to_s%>
-<% split_date = year.split("-") %>
-<% month = split_date[1]%>
-
-
-
-<div>
-    <div class="w-24 h-24 rounded-full bg-gray-400 flex items-center justify-center shadow-lg" >
-    <span class="text-white text-lg"><%= month%></span>
-    </div>
-</div>
