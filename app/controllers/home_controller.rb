@@ -5,12 +5,5 @@ class HomeController < ApplicationController
   end
 
   def show
-    date = Date.today
-
-    @previous_month = date.prev_month
-    @temp = @previous_month
-    puts @temp.prev_month
-
-
   end
 end
