@@ -14,6 +14,15 @@
 
 <% nxt_month = dates[10].next_month.to_s%>
 
+<% lst_mont = pre_month.split("-")%>
+
+<% lst_mont_date = lst_mont[1] %>
+
+
+<% nxt_mont = nxt_month.split("-")%>
+
+<% nxt_mont_date = nxt_mont[1] %>
+
 
 
 <% case month %>
@@ -57,7 +66,7 @@
 
     </div>
 
-<div>
+<div> 
     
     <div class="grid grid-cols-7 w-2/3 font-bold">
       </*monday */>
@@ -251,14 +260,31 @@
   </div>
   
     <% nxt_url = "/?start_date=#{nxt_month}"%>
-
     <% pre_url = "/?start_date=#{pre_month}"%>
 
     <div class="grid grid-cols-7 gap-8 w-2/3 font-bold">
         <% dates.each do |date|%>
-        
-        <% day = date.day %>
-        <div class="pl-6"><%= day%></div>
+        <% new_dates = date.to_s%>
+        <% new_date = new_dates.split("-")%>
+
+        <% if new_date[1] == lst_mont_date || new_date[1] == nxt_mont_date%>
+            <% day = "" %>
+        <% else%>
+            <% day = date.day%>
+        <% end%>
+
+        <div class="pl-6">
+            <%if @today_date == new_dates %>
+                <div class="bg-black">
+                    <%= day%>
+                </div>
+            <%else%>
+                <div>
+                    <%= day%>
+                </div>
+            <%end%>
+        </div>
+
       <%end%>
 
     <div class="inline-block flex pl-44">
@@ -295,7 +321,7 @@
 
 
         <div class="inline-block">
-            <%= link_to nxt_url, class: 'inline-block' do %>
+            <%= link_to nxt_url, class: 'inline-block', style: "padding-bottom: 30px;" do %>
             <svg width="56" height="56" viewBox="0 0 72 79" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_dd_2210_12)">
             <circle cx="35.6" cy="40.6" r="24.6" fill="#2B47D9"/>
